@@ -1,0 +1,310 @@
+.home {
+  min-height: 100vh;
+  background-color: #0d0d0d;
+  color: #fff;
+  padding: 25px 40px; /* 🔹 reduced overall padding */
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Background Glow ===== */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(170, 80, 255, 0.35), transparent 70%);
+  filter: blur(90px);
+  z-index: 0;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px; /* 🔹 less space below title */
+  position: relative;
+  z-index: 1;
+}
+
+.header h1 {
+  font-size: 1.6rem; /* 🔹 smaller title */
+  max-width: 520px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.subscribe {
+  color: #bb86fc;
+  border: 1px solid #bb86fc;
+  padding: 6px 16px; /* 🔹 smaller button */
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.subscribe:hover {
+  background-color: #bb86fc;
+  color: #0d0d0d;
+}
+
+/* ===== Stats + Partner Grid ===== */
+.stats-partner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 25px; /* 🔹 reduced gap */
+  margin-bottom: 45px; /* 🔹 pulled up section */
+  position: relative;
+  z-index: 1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px; /* 🔹 tighter grid */
+  height: 100%;
+}
+
+.stat {
+  background: radial-gradient(circle at top left, rgba(150, 50, 255, 0.15), #1a1a1a 60%);
+  border: 1px solid rgba(120, 80, 255, 0.3);
+  border-radius: 14px;
+  text-align: center;
+  padding: 22px 14px; /* 🔹 compact box */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  box-shadow: 0 0 18px rgba(160, 90, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.stat h2 {
+  font-size: 1.4rem; /* 🔹 slightly smaller */
+  margin-bottom: 6px;
+}
+
+.stat p {
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+/* ===== Partner Section ===== */
+.partner-section {
+  background: linear-gradient(135deg, rgba(60, 20, 100, 0.4), rgba(20, 20, 20, 0.9));
+  border-radius: 14px;
+  padding: 28px; /* 🔹 reduced padding */
+  border: 1px solid rgba(130, 80, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.partner-text h3 {
+  font-size: 1.1rem; /* 🔹 smaller heading */
+  margin-bottom: 8px;
+}
+
+.partner-text p {
+  color: #ccc;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+/* ===== Featured + Trusted ===== */
+.bottom-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+.featured,
+.trusted {
+  background: linear-gradient(145deg, #1a1a1a, #121212);
+  border-radius: 14px;
+  border: 1px solid rgba(100, 80, 255, 0.25);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 240px;
+}
+
+.featured h3,
+.trusted h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featured h3 a {
+  color: #bb86fc;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.project-preview {
+  background: linear-gradient(145deg, #1a1a1a, #121212);
+  border-radius: 10px;
+  height: 130px;
+  margin-top: 10px;
+  border: 1px solid rgba(100, 80, 255, 0.3);
+}
+
+/* ===== Trusted Logos ===== */
+.trusted-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+/* ✅ Each Logo Box */
+.trusted-logos .logo-card {
+  background: linear-gradient(135deg, rgba(80, 80, 80, 0.1), #1a1a1a);
+  border-radius: 10px;
+  border: 1px solid rgba(120, 80, 255, 0.25);
+  width: 70px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-card:hover {
+  box-shadow: 0 0 10px rgba(160, 90, 255, 0.35);
+  transform: translateY(-3px);
+}
+
+/* ✅ Logo Image */
+.logo-card img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(150, 80, 255, 0.4));
+  opacity: 0.95;
+  margin-bottom: 4px;
+}
+
+/* ✅ Logo Name (below image) */
+.logo-card p {
+  font-size: 0.75rem;
+  color: #ddd;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .trusted-logos {
+    justify-content: center;
+  }
+  .logo-card {
+    width: 60px;
+    height: 70px;
+  }
+  .logo-card img {
+    width: 28px;
+    height: 28px;
+  }
+  .logo-card p {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* ===== Centered Transparent Spline Character ===== */
+.spline-wrapper {
+  position: absolute;
+  top: 61.5%;
+  left: 50%;
+  width: 550px;
+  height: 550px; /* same size, don’t reduce */
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 25px rgba(150, 80, 255, 0.3));
+  overflow: hidden; /* 👈 hide extra part */
+  clip-path: inset(0 0 70px 0); /* 👈 bottom trim only (increase 40px for more crop) */
+}
+
+
+spline-viewer {
+  width: 100%;
+  height: 100%;
+  background: transparent !important;
+}
+
+/* Home.css ke end me add karein */
+
+/* For Tablets and smaller devices */
+@media (max-width: 992px) {
+  .stats-partner,
+  .bottom-section {
+    grid-template-columns: 1fr; /* 2-column se 1-column layout */
+  }
+  
+  .home {
+    padding: 20px; /* Padding kam karein */
+  }
+
+  .header {
+    flex-direction: column; /* Title aur button upar-neeche aayenge */
+    align-items: flex-start;
+    gap: 20px; /* Unke beech thoda gap */
+  }
+
+  .header h1 {
+    font-size: 1.4rem; /* Title thoda chota */
+  }
+
+  .spline-wrapper {
+    /* Spline viewer ko aadjust karein */
+    width: 400px;
+    height: 400px;
+    opacity: 0.5; /* Thoda transparent kar sakte hain */
+    top: 65%;
+  }
+}
+
+/* For Mobile phones */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.2rem;
+  }
+  
+  .spline-wrapper {
+    /* Mobile par 3D model ko aur chota ya hide bhi kar sakte hain */
+    width: 300px;
+    height: 300px;
+    top: 70%;
+    /* display: none; */ /* Agar performance issue ho to hide kar dein */
+  }
+
+  .stat h2 {
+    font-size: 1.2rem;
+  }
+}

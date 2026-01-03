@@ -1,0 +1,230 @@
+/* ================================ */
+/* ========= MAIN LAYOUT ========== */
+/* ================================ */
+.about-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000; /* Simple fallback */
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Background layer */
+}
+
+.about-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  
+  display: grid;
+  place-items: center;
+  overflow-y: auto; /* ✅ SCROLLING YAHAN HONI CHAHIYE */
+  backdrop-filter: blur(8px) brightness(1.12);
+  padding: 32px 16px;
+  box-sizing: border-box;
+}
+
+.about-content-wrapper {
+  width: 100%;
+  max-width: 860px;
+}
+
+/* ================================ */
+/* ========= HERO CARD ============ */
+/* ================================ */
+.about-hero-card {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* 2 columns for desktop */
+  gap: 20px;
+  align-items: start;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 0 28px rgba(0, 255, 255, 0.08);
+}
+
+/* Left Column */
+.about-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-profile-img {
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.25);
+}
+
+.about-contact-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.about-contact-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.about-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d7ffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.about-contact-item span {
+  word-break: break-all;
+}
+
+.about-social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.about-icon-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.about-icon-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #00ffff22, #ff00ff22);
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.22);
+}
+
+/* Right Column */
+.about-right-col .name-heading {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0;
+  background: linear-gradient(90deg, #00ffff, #00ff66);
+  -webkit-background-clip: text; /* For older browsers */
+  background-clip: text; /* ✅ YEH LINE ADD KAREIN (Standard) */
+  color: transparent; /* Text ko transparent karna zaroori hai */
+  /* -webkit-text-fill-color: transparent; ko 'color: transparent' se badalna better hai */
+  filter: drop-shadow(0 0 16px rgba(0, 255, 255, 0.35));
+}
+.about-right-col .title {
+  opacity: 0.95;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.about-right-col p {
+  opacity: 0.9;
+  margin-top: 10px;
+  max-width: 620px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.about-right-col .section-heading {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  text-shadow: 0 0 14px rgba(0, 255, 200, 0.22);
+}
+
+/* Badges */
+.badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.badgeBox {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0 0 24px rgba(0, 255, 255, 0.05), 0 8px 16px rgba(0, 0, 0, 0.18);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.badgeBox:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  box-shadow: inset 0 0 28px rgba(0, 255, 255, 0.07), 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+.badgeLabel { font-size: 0.8rem; opacity: 0.75; }
+.badgeValue { font-size: 1rem; font-weight: 700; margin-top: 4px; color: #fff; }
+
+
+/* About.css (File ke end mein) */
+
+/* ================================== */
+/* ======== RESPONSIVE STYLES ======= */
+/* ================================== */
+@media (max-width: 800px) { /* Aapka breakpoint 800px hai */
+  
+  /* ✅ YEH ZAROORI FIX HAI 👇 */
+  .about-content-overlay {
+      /* Header (60px) + thoda extra space (32px) */
+      padding-top: 92px; 
+  }
+
+  .about-hero-card {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .about-left-col {
+    align-items: center;
+  }
+
+  .about-profile-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-right-col .name-heading {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .about-right-col .title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content-overlay {
+    padding: 80px 10px 20px 10px; /* Padding upar se 80px */
+  }
+
+  .about-right-col .name-heading {
+    font-size: 1.5rem;
+  }
+
+  .about-contact-item span {
+    font-size: 0.8rem;
+  }
+}

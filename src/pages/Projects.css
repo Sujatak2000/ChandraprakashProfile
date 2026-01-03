@@ -1,0 +1,195 @@
+/* ================================== */
+/* ========= MAIN LAYOUT ============ */
+/* ================================== */
+.canvas-container {
+  position: absolute;
+  top: 0;
+  /* Sidebar ki width (yeh value aapke Sidebar.css se match honi chahiye) */
+  /* left: 230px;  */
+  width: calc(100vw - 230px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ================================== */
+/* ========= PROJECT OVERLAY ======== */
+/* ================================== */
+.overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #000000, #050505);
+  z-index: 999;
+  display: flex;
+  color: #fff;
+  overflow-y: auto; /* For scrolling on small screens */
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: row; /* Default for desktop */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 60px;
+  box-sizing: border-box;
+  gap: 3rem;
+}
+
+.overlay-close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+/* Left Side - Text Content */
+.overlay-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.overlay-text h1 {
+  font-size: 2.6rem;
+  margin: 0;
+}
+
+.overlay-text .description {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.overlay-details {
+  margin-top: 1rem;
+  display: grid;
+  gap: 6px;
+}
+
+.visit-project-btn {
+  margin-top: 1.2rem;
+  display: inline-block;
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid rgba(0, 255, 102, 0.5);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  width: fit-content; /* Important for inline-block */
+}
+
+.nav-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  background: rgba(255, 255, 0, 0.08);
+  border: 1px solid rgba(255, 255, 0, 0.45);
+}
+
+.next-btn {
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.45);
+}
+
+/* Right Side - Image Content */
+.overlay-image-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay-image {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+.image-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 0, 255, 0.45);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.image-nav-btn.prev {
+  left: 20px;
+}
+.image-nav-btn.next {
+  right: 20px;
+}
+
+
+/* ================================== */
+/* ======== RESPONSIVE STYLES ======== */
+/* ================================== */
+@media (max-width: 992px) {
+  /* Tablet styles */
+  .overlay-content {
+    flex-direction: column;
+    padding: 80px 30px 30px 30px; /* More space at top for close button */
+    justify-content: flex-start;
+  }
+  .overlay-text, .overlay-image-wrapper {
+    flex: none; /* remove flex-1 */
+    width: 100%;
+  }
+  .overlay-text h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile styles */
+  .canvas-container {
+    left: 0;
+    width: 100vw;
+  }
+
+  .overlay-content {
+    padding: 70px 20px 20px 20px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+  }
+  
+  .image-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .image-nav-btn.prev { left: 5px; }
+  .image-nav-btn.next { right: 5px; }
+}

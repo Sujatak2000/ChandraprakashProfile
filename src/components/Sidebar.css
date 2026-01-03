@@ -1,0 +1,157 @@
+.sidebar {
+  width: 230px;
+  background-color: #0a0a0a;
+  border-right: 1px solid #1c1c1c;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;                /* 🔹 Increased size */
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #7c4dff;   /* 🔹 Thicker border */
+  box-shadow: 0 0 25px rgba(124, 77, 255, 0.45); /* 🔹 Stronger glow */
+  /* margin-bottom: 4px; */
+  transition: all 0.4s ease;
+  object-fit: cover;           /* 🔹 Properly fills circular shape */
+}
+
+h3 {
+  font-size: 1.2rem;           /* Slightly larger brand text */
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  color: #999;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+nav li {
+  margin: 18px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+nav li.active a,
+nav a:hover {
+  background: linear-gradient(90deg, rgba(106, 76, 255, 0.15), rgba(106, 76, 255, 0.05));
+  color: white;
+  transform: translateX(6px);
+  box-shadow: 0 0 10px rgba(106, 76, 255, 0.2);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  color: #bb86fc;
+  transition: 0.3s;
+}
+
+nav li.active .icon,
+nav a:hover .icon {
+  color: white;
+}
+
+/* Sidebar.css ke end mein add karein */
+/* Sidebar.css ke end mein add karein (purane @media ko isse replace karein) */
+
+@media (max-width: 768px) {
+  /* 1. Sidebar ab ek fixed top header ban jayega */
+  .sidebar {
+    width: 100%;
+    height: 60px; /* Header ki height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    flex-direction: row; /* Vertical se Horizontal */
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px; /* Vertical padding hata kar horizontal padding */
+    box-sizing: border-box;
+
+    border-right: none; /* Right border ki zaroorat nahi */
+    border-bottom: 1px solid #1c1c1c; /* Header ke neeche line */
+    
+    /* Purane transform aur transition ko hata dein, unki zaroorat nahi */
+    transform: none; 
+    transition: none;
+  }
+
+  /* 2. Profile section ko mobile par hide kar dein */
+  .sidebar .profile {
+    display: none;
+  }
+
+  /* 3. Navigation ko aadjust karein */
+  .sidebar nav {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around; /* Links ko barabar space dein */
+    align-items: center;
+  }
+
+  /* 4. List items aur links ko aadjust karein */
+  .sidebar nav li {
+    margin: 0; /* Vertical margin hata dein */
+  }
+
+  .sidebar nav a {
+    padding: 8px;
+    gap: 8px;
+    font-size: 14px;
+  }
+  
+  /* 5. Hover/active effect ko aadjust karein */
+  .sidebar nav li.active a,
+  .sidebar nav a:hover {
+    transform: none; /* Horizontal movement (translateX) hata dein */
+    background: rgba(106, 76, 255, 0.1); /* Sirf background rakhein */
+    box-shadow: none;
+  }
+
+  /* (Optional) Bahut choti screens ke liye text hide kar sakte hain */
+  @media (max-width: 420px) {
+    .sidebar nav a {
+      font-size: 0; /* Text ko hide karein */
+      gap: 0;
+    }
+    .sidebar nav a .icon {
+      font-size: 18px; /* Icon ko thoda bada rakhein */
+    }
+  }
+}

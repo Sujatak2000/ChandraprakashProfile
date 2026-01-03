@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* App.css */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #0d0d0d;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app {
+  display: flex;
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-content {
+  flex: 1;
+  position: relative; /* Hamburger button ke liye zaroori */
+}
+
+/* ===== Hamburger Menu Button Styles ===== */
+.hamburger-menu {
+  display: none; /* Desktop par hide rahega */
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1001; /* Sidebar se bhi upar */
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* App.css ke end mein add karein (purane @media ko isse replace karein) */
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column; /* Layout ko aab vertical samjhe */
   }
-  to {
-    transform: rotate(360deg);
+
+  .main-content {
+    padding-left: 0;
+    /* 👇 IMPORTANT: Header ki height (60px) ke barabar top padding dein */
+    padding-top: 60px;
+  }
+  
+  /* Hamburger menu ki ab zaroorat nahi hai, toh iska style bhi hata sakte hain */
+  .hamburger-menu {
+    display: none;
   }
 }
