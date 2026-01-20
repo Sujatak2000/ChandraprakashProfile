@@ -24,7 +24,7 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="profile">
         <img src="/profile.jpg" alt="Profile" className="profile-img" />
-        <h3>Sujata</h3>
+        <h3>Sojju</h3>
         <p className="subtitle">Professional Developer</p>
       </div>
 
